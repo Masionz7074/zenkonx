@@ -1,24 +1,24 @@
 tsParticles.load("tsparticles", {
     fpsLimit: 60,
     background: {
-        color: "#18191c" // Updated to match body dark background
+        color: "#111827"
     },
     particles: {
         number: {
-            value: 50, // Slightly fewer for a cleaner look with this UI
+            value: 50,
             density: {
                 enable: true,
                 value_area: 800
             }
         },
         color: {
-            value: "#4f545c" // Muted grey particles, won't clash
+            value: "#4f545c"
         },
         shape: {
             type: "circle"
         },
         opacity: {
-            value: 0.3, // More subtle
+            value: 0.3,
             random: true,
             anim: {
                 enable: true,
@@ -34,7 +34,7 @@ tsParticles.load("tsparticles", {
         links: {
             enable: true,
             distance: 150,
-            color: "#3e4046", // Darker links
+            color: "#3e4046",
             opacity: 0.2,
             width: 1
         },
@@ -53,11 +53,11 @@ tsParticles.load("tsparticles", {
         events: {
             onhover: {
                 enable: true,
-                mode: "grab" // Grab is less distracting than repulse for this UI
+                mode: "grab"
             },
             onclick: {
                 enable: true,
-                mode: "push" // Adds a few particles on click
+                mode: "push"
             },
             resize: true
         },
@@ -71,7 +71,6 @@ tsParticles.load("tsparticles", {
             push: {
                 particles_nb: 2
             }
-            // Removed bubble and repulse for simplicity
         }
     },
     detectRetina: true
