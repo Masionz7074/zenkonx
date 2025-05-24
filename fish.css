@@ -5,15 +5,17 @@
 }
 
 body{
-    font-family: 'Outfit', sans-serif;
-    color: #ccc; /* Default text color (mostly for particles if they had text) */
+    /* font-family: 'Outfit', sans-serif; */
+    font-family: 'Montserrat', sans-serif; /* Closer to Roblox/Discord style fonts */
+    color: #dcddde; /* Default light text color for consistency */
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    overflow: hidden; /* Hide scrollbars */
-    /* Background is handled by tsParticles */
+    overflow: hidden;
+    /* Background is handled by tsParticles, but set a fallback */
+    background-color: #18191c;
 }
 
 #tsparticles {
@@ -22,106 +24,88 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Behind all other content */
+    z-index: 0; /* Behind form container */
 }
 
-.form-wrapper{
+.form-container{
+    background-color: #2f3136; /* Dark grey form background (Discord-like) */
+    padding: 30px 35px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    z-index: 1; /* Above particles */
     display: flex;
-    justify-content: center;
-    width: 90%;
-    max-width: 450px; /* Adjust as needed for the image's proportions */
-    z-index: 1; /* Ensure form is above particles */
-    /* background-color: rgba(30, 30, 30, 0.7); Optional: if you want a subtle container bg */
-    padding: 20px; /* Add some padding around the content */
-    border-radius: 10px; /* Optional: if you add a background to wrapper */
+    flex-direction: column;
+    gap: 25px; /* Space between header and content */
+}
+
+.form-header h2{
+    font-weight: 700;
+    color: #FFFFFF; /* White title */
+    font-size: 26px;
+    text-align: center;
 }
 
 .form-content{
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* Inputs/button will stretch if width is 100% */
-    gap: 18px; /* Space between form elements */
-    width: 100%;
-}
-
-.form-title{
-    text-align: center;
-    margin-bottom: 10px; /* Space below title/hr */
-}
-
-.form-title h2{
-    font-weight: 500; /* Slightly less bold than before */
-    color: #d0d0d0; /* Light grey for title */
-    font-size: 28px; /* Adjust size as needed */
-    margin-bottom: 8px;
-}
-
-.form-title hr{
-    border: none;
-    width: 60px; /* Short underline */
-    height: 4px; /* Thicker underline */
-    background-color: #007bff; /* Bright blue */
-    border-radius: 2px;
-    margin: 0 auto; /* Center hr */
+    gap: 20px; /* Space between inputs and button */
 }
 
 .form-input{
     width: 100%;
-    height: 50px; /* Matches image proportion */
-    border: none; /* No border as per image */
+    height: 48px;
+    background-color: #202225; /* Darker input background */
+    border: 1px solid #18191c; /* Very subtle border, slightly darker than input bg */
+    border-radius: 5px; /* Slightly rounded corners */
+    padding: 0 15px;
+    font-size: 16px;
+    color: #dcddde; /* Light text color for input */
     outline: none;
-    padding-left: 25px; /* Indent placeholder text */
-    padding-right: 25px;
-    font-weight: 500;
-    font-size: 15px;
-    color: #c0c0c0; /* Light grey text inside input */
-    background-color: #3c3c3c; /* Dark grey input background */
-    border-radius: 25px; /* Pill shape */
-}
-
-.form-input:focus{
-    /* Optional: Add a subtle focus style if desired, image doesn't show one */
-    box-shadow: 0 0 0 2px #007bff44;
+    transition: border-color 0.2s ease-in-out;
 }
 
 .form-input::placeholder{
-    color: #888888; /* Muted grey for placeholder */
+    color: #72767d; /* Muted grey for placeholder */
     font-weight: 400;
 }
 
-.form-content button{
-    padding: 10px 20px;
-    font-size: 15px;
-    font-weight: 500;
-    color: #333; /* Dark text for button */
-    background-color: #e0e0e0; /* Light grey/off-white button */
-    border: 1px solid #b0b0b0; /* Subtle border for button */
-    border-radius: 6px; /* Slightly rounded corners, not pill */
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    align-self: flex-start; /* Aligns button to the start of the flex container */
-    margin-top: 10px; /* Space above button */
+.form-input:focus{
+    border-color: #00aaff; /* Roblox-like blue focus, or use #5865f2 (Discord blurple) */
 }
 
-.form-content button:hover{
-    background-color: #d0d0d0; /* Slightly darker on hover */
+.submit-button{
+    width: 100%;
+    height: 48px;
+    background-color: #FFFFFF; /* White button background */
+    border: 1px solid #FFFFFF; /* White border (or very light grey like #e0e0e0) */
+    border-radius: 5px; /* Match input radius */
+    color: #2f3136; /* Dark text, matching form background */
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    text-align: center;
 }
+
+.submit-button:hover{
+    background-color: #f0f0f0; /* Slightly off-white on hover */
+    /* color: #232529; */
+}
+
 
 /* Responsive adjustments */
-@media (max-width: 500px){
-    .form-wrapper{
-        max-width: 100%;
-        padding: 15px;
+@media (max-width: 480px){
+    .form-container{
+        padding: 25px 20px;
+        max-width: 95%;
     }
-    .form-title h2{
-        font-size: 24px;
+    .form-header h2{
+        font-size: 22px;
     }
-    .form-input{
-        height: 48px;
-        font-size: 14px;
-    }
-    .form-content button{
-        width: 100%; /* Make button full width on small screens */
-        align-self: stretch;
+    .form-input, .submit-button{
+        height: 44px;
+        font-size: 15px;
     }
 }
