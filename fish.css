@@ -1,0 +1,141 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Outfit', sans-serif; /* Added sans-serif fallback */
+    /* background: linear-gradient(#04db16, #201195); OLD */
+    background: linear-gradient(135deg, #333, #1a1a1a); /* NEW Dark Grey Gradient */
+    color: #ccc; /* NEW Default light text color */
+    min-height: 100vh; /* Ensure gradient covers full height */
+    display: flex; /* For centering the container */
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Add some padding to body */
+}
+.contact-container{
+    /* height: 5vh; REMOVED - this was very small for a main container */
+    display: flex;
+    align-items: flex-start; /* Align items to the top if they have different heights */
+    justify-content: space-evenly;
+    gap: 40px; /* Added gap between left and right */
+    padding: 40px; /* Increased padding */
+    background-color: #282828; /* NEW Slightly lighter container BG */
+    border-radius: 15px; /* NEW Rounded corners for the container */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* NEW Subtle shadow */
+    width: 90%;
+    max-width: 1000px; /* Max width for the form */
+}
+.contact-left{
+    display: flex;
+    flex-direction: column;
+    align-items: start; /* Changed from 'start' to 'stretch' if inputs should take full width of left column */
+    align-items: stretch;
+    gap: 20px;
+    flex: 1; /* Allow left side to take available space */
+}
+.contact-left-title h2{
+    font-weight: 600;
+    /* color: #e11616; OLD */
+    color: #e0e0e0; /* NEW - Light grey/off-white */
+    font-size: 36px; /* Slightly reduced for better fit */
+    margin-bottom: 5px;
+}
+.contact-left-title hr{
+    border: none;
+    width: 100px; /* Adjusted width */
+    height: 4px; /* Adjusted height */
+    /* background-color: aqua; OLD */
+    background-color: #007bff; /* NEW - Muted blue accent */
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.contact-inputs{ /* This class should be applied to input and textarea */
+    width: 100%; /* Take full width of parent (.contact-left) */
+    height: 50px;
+    border: 1px solid #555; /* NEW - Subtle dark border */
+    outline: none;
+    padding-left: 20px; /* Adjusted padding */
+    padding-right: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    /* color: chartreuse; OLD */
+    color: #ddd; /* NEW - Light text color for input */
+    background-color: #3a3a3a; /* NEW - Dark input background */
+    border-radius: 25px; /* Adjusted for a sleeker look */
+}
+.contact-left textarea.contact-inputs{ /* Specific styling for textarea */
+    height: 140px;
+    padding-top: 15px;
+    border-radius: 15px; /* Slightly less round for textarea */
+    resize: vertical; /* Allow vertical resize */
+}
+.contact-inputs:focus{
+    /* border: 2px solid #f98f05; OLD */
+    border: 2px solid #007bff; /* NEW - Accent color on focus */
+    box-shadow: 0 0 8px #007bff33; /* Optional: add a subtle glow */
+}
+.contact-inputs::placeholder{
+    /* color: #07d179; OLD */
+    color: #888; /* NEW - Muted grey for placeholder */
+}
+.contact-left button{
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center button content */
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    /* color: #74e116; OLD */
+    color: #fff; /* NEW - White text on button */
+    gap: 10px;
+    border: none;
+    border-radius: 25px; /* Matched input radius */
+    /* background: linear-gradient(270ded, #56e106, #346fe5); OLD (had typo 270ded) */
+    /* background: linear-gradient(270deg, #4a4a4a, #333); Darker gradient option */
+    background-color: #007bff; /* NEW - Solid accent color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Align button to the start of the flex container */
+}
+.contact-left button:hover{
+    background-color: #0056b3; /* Darker shade of accent for hover */
+}
+.contact-left button img{
+    height: 18px; /* Adjusted height */
+    /* If your icon is dark, you might need to invert it: filter: invert(1); */
+}
+.contact-right{
+    flex-shrink: 0; /* Prevent right side from shrinking */
+}
+.contact-right img{
+    width: 450px; /* Slightly reduced */
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Optional: round image corners */
+}
+
+@media (max-width: 800px){
+    .contact-container{
+        flex-direction: column; /* Stack left and right on smaller screens */
+        align-items: center;
+        padding: 30px 20px;
+    }
+    .contact-inputs{ /* Will apply to input and textarea */
+        width: 100%; /* Take full width in mobile */
+    }
+    .contact-left{
+        width: 100%; /* Ensure left side takes full width */
+        align-items: stretch;
+    }
+    .contact-left-title h2{
+        font-size: 30px;
+    }
+    .contact-left button{
+        width: 100%; /* Make button full width on mobile */
+    }
+    .contact-right{
+        display: none; /* As per original */
+    }
+}
