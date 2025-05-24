@@ -6,14 +6,14 @@
 
 body{
     font-family: 'Outfit', sans-serif;
-    color: #ccc;
+    color: #ccc; /* Default text color (mostly for particles if they had text) */
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    overflow: hidden; /* Hide scrollbars that might appear from particles */
-    /* Background will be handled by tsParticles */
+    overflow: hidden; /* Hide scrollbars */
+    /* Background is handled by tsParticles */
 }
 
 #tsparticles {
@@ -22,111 +22,106 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Place it behind all other content */
+    z-index: -1; /* Behind all other content */
 }
 
-.contact-container{
-    display: flex; /* This is fine even with only one child (contact-left) */
-    justify-content: center; /* Center contact-left if it has a fixed width */
-    padding: 30px 40px;
-    background-color: rgba(40, 40, 40, 0.85); /* Slightly transparent dark BG */
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+.form-wrapper{
+    display: flex;
+    justify-content: center;
     width: 90%;
-    max-width: 500px; /* Max width for a single column form */
+    max-width: 450px; /* Adjust as needed for the image's proportions */
     z-index: 1; /* Ensure form is above particles */
+    /* background-color: rgba(30, 30, 30, 0.7); Optional: if you want a subtle container bg */
+    padding: 20px; /* Add some padding around the content */
+    border-radius: 10px; /* Optional: if you add a background to wrapper */
 }
 
-.contact-left{
+.form-content{
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* Inputs/button will stretch to container width */
-    gap: 20px;
-    width: 100%; /* Take full width of contact-container */
-}
-
-.contact-left-title h2{
-    font-weight: 600;
-    color: #e0e0e0;
-    font-size: 32px;
-    margin-bottom: 5px;
-    text-align: center; /* Center title */
-}
-
-.contact-left-title hr{
-    border: none;
-    width: 80px;
-    height: 4px;
-    background-color: #007bff; /* Muted blue accent */
-    border-radius: 10px;
-    margin-bottom: 20px;
-    margin-left: auto;  /* Center hr */
-    margin-right: auto; /* Center hr */
-}
-
-.contact-inputs{
+    align-items: stretch; /* Inputs/button will stretch if width is 100% */
+    gap: 18px; /* Space between form elements */
     width: 100%;
-    height: 50px;
-    border: 1px solid #555;
-    outline: none;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #ddd;
-    background-color: #3a3a3a;
-    border-radius: 25px;
 }
 
-.contact-left textarea.contact-inputs{
-    height: 140px;
-    padding-top: 15px;
-    border-radius: 15px;
-    resize: vertical;
+.form-title{
+    text-align: center;
+    margin-bottom: 10px; /* Space below title/hr */
 }
 
-.contact-inputs:focus{
-    border: 2px solid #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+.form-title h2{
+    font-weight: 500; /* Slightly less bold than before */
+    color: #d0d0d0; /* Light grey for title */
+    font-size: 28px; /* Adjust size as needed */
+    margin-bottom: 8px;
 }
 
-.contact-inputs::placeholder{
-    color: #888;
-}
-
-.contact-left button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 30px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    gap: 10px;
+.form-title hr{
     border: none;
-    border-radius: 25px;
-    background-color: #007bff;
+    width: 60px; /* Short underline */
+    height: 4px; /* Thicker underline */
+    background-color: #007bff; /* Bright blue */
+    border-radius: 2px;
+    margin: 0 auto; /* Center hr */
+}
+
+.form-input{
+    width: 100%;
+    height: 50px; /* Matches image proportion */
+    border: none; /* No border as per image */
+    outline: none;
+    padding-left: 25px; /* Indent placeholder text */
+    padding-right: 25px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #c0c0c0; /* Light grey text inside input */
+    background-color: #3c3c3c; /* Dark grey input background */
+    border-radius: 25px; /* Pill shape */
+}
+
+.form-input:focus{
+    /* Optional: Add a subtle focus style if desired, image doesn't show one */
+    box-shadow: 0 0 0 2px #007bff44;
+}
+
+.form-input::placeholder{
+    color: #888888; /* Muted grey for placeholder */
+    font-weight: 400;
+}
+
+.form-content button{
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333; /* Dark text for button */
+    background-color: #e0e0e0; /* Light grey/off-white button */
+    border: 1px solid #b0b0b0; /* Subtle border for button */
+    border-radius: 6px; /* Slightly rounded corners, not pill */
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    /* align-self: flex-start; Removed as align-items: stretch on parent handles width */
+    transition: background-color 0.2s ease;
+    align-self: flex-start; /* Aligns button to the start of the flex container */
+    margin-top: 10px; /* Space above button */
 }
 
-.contact-left button:hover{
-    background-color: #0056b3;
+.form-content button:hover{
+    background-color: #d0d0d0; /* Slightly darker on hover */
 }
 
-.contact-left button img{
-    height: 18px;
-    /* If your icon is dark, you might need to invert it: filter: invert(1); */
-}
-
-@media (max-width: 800px){ /* Kept for future, though less critical without right column */
-    .contact-container{
-        padding: 25px 20px;
-        width: 95%;
+/* Responsive adjustments */
+@media (max-width: 500px){
+    .form-wrapper{
+        max-width: 100%;
+        padding: 15px;
     }
-    .contact-left-title h2{
-        font-size: 28px;
+    .form-title h2{
+        font-size: 24px;
     }
-    /* .contact-right part of media query removed as .contact-right is gone */
+    .form-input{
+        height: 48px;
+        font-size: 14px;
+    }
+    .form-content button{
+        width: 100%; /* Make button full width on small screens */
+        align-self: stretch;
+    }
 }
