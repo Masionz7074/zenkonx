@@ -1,46 +1,46 @@
 tsParticles.load("tsparticles", {
     fpsLimit: 60,
     background: {
-        color: "#111827"
+        color: "#6B7280"
     },
     particles: {
         number: {
-            value: 50,
+            value: 70,
             density: {
                 enable: true,
                 value_area: 800
             }
         },
         color: {
-            value: "#4f545c"
+            value: "#00E5FF"
         },
         shape: {
             type: "circle"
         },
         opacity: {
-            value: 0.3,
+            value: 0.6,
             random: true,
             anim: {
                 enable: true,
-                speed: 0.5,
-                opacity_min: 0.05,
+                speed: 0.8,
+                opacity_min: 0.2,
                 sync: false
             }
         },
         size: {
-            value: 2,
+            value: 2.5,
             random: true
         },
         links: {
             enable: true,
-            distance: 150,
-            color: "#3e4046",
-            opacity: 0.2,
+            distance: 140,
+            color: "#00E5FF",
+            opacity: 0.3,
             width: 1
         },
         move: {
             enable: true,
-            speed: 1,
+            speed: 1.5,
             direction: "none",
             random: true,
             straight: false,
@@ -63,13 +63,13 @@ tsParticles.load("tsparticles", {
         },
         modes: {
             grab: {
-                distance: 120,
-                line_linked: {
-                    opacity: 0.5
+                distance: 130,
+                links: {
+                    opacity: 0.8
                 }
             },
             push: {
-                particles_nb: 2
+                quantity: 3
             }
         }
     },
