@@ -1,7 +1,7 @@
 tsParticles.load("tsparticles", {
     fpsLimit: 60,
     background: {
-        color: "#6B7280"
+        color: "#000800"
     },
     particles: {
         number: {
